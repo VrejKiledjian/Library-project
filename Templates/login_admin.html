@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% from "macros.html" import error_display with context %}
+
+{% set page_title = "Admin Log in " %}
+
+{% block content %}
+
+<div class="container login-container">
+    <div class="row">
+        <div class="col-md-6 login-form-1">
+<h1>Admin Log in</h1>
+</div>
+{#    {% if current_user.roll == "admin" %}#}
+<form method="POST">
+    {{ form.csrf_token }}
+    <div class="mb-3" style="width: 400px;" id="login-container">
+        <label for="full_name_admin" class="form-label">Full Name: </label>
+        <input type="text"
+               class="form-control"
+               {% if form.full_name_admin.data %}
+                value="{{ form.full_name_admin.data }}"
+               {% endif %}
+               id="full_name_admin"
+               name="full_name_admin"
+               required
+        >
+        {{ error_display(form.full_name_admin.errors) }}
+    </div>
+    <div class="mb-3" style="width: 400px;">
+        <label for="password" class="form-label">Password: </label>
+        <input type="password"
+               class="form-control"
+               {% if form.password.data %}
+                value="{{ form.password.data }}"
+               {% endif %}
+               id="password"
+               name="password"
+               required
+        >
+        {{ error_display(form.password.errors) }}
+    </div>
+    <div class="mb-3" style="width: 400px;">
+        <label for="email" class="form-label">Email: </label>
+        <input type="email"
+               class="form-control"
+               {% if form.email.data %}
+                value="{{ form.email.data }}"
+               {% endif %}
+               id="email"
+               name="email"
+               required
+        >
+        {{ error_display(form.email.errors) }}
+    </div>
+    <input class="btn btn-success" type="submit" value="Login">
+            </form>
+{#    {% endif %}#}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% from "macros.html" import error_display with context %}
+
+{% set page_title = "Login" %}
+
+{% block content %}
+<h1>Register</h1>
+<form method="POST">
+    {{ form.csrf_token }}
+    <div class="mb-3" style="width: 400px;">
+        <label for="full_name" class="form-label">Full_Name: </label>
+        <input type="text"
+               class="form-control"
+               {% if form.full_name.data %}
+                value="{{ form.full_name.data }}"
+               {% endif %}
+               id="full_name"
+               name="full_name"
+               required
+        >
+        {{ error_display(form.full_name.errors) }}
+    </div>
+    <div class="mb-3" style="width: 400px;">
+        <label for="grade" class="form-label">Grade: </label>
+        <input type="text"
+               class="form-control"
+               {% if form.grade.data %}
+                value="{{ form.grade.data }}"
+               {% endif %}
+               id="grade"
+               name="grade"
+               required
+        >
+        {{ error_display(form.grade.errors) }}
+    </div>
+    <div class="mb-3" style="width: 400px;">
+        <label for="password" class="form-label">Password: </label>
+        <input type="password"
+               class="form-control"
+               {% if form.password.data %}
+                value="{{ form.password.data }}"
+               {% endif %}
+               id="password"
+               name="password"
+               required
+        >
+        {{ error_display(form.password.errors) }}
+    </div>
+    <div class="mb-3" style="width: 400px;">
+        <label for="repeat_password" class="form-label">Repeat password: </label>
+        <input type="password"
+               class="form-control"
+               {% if form.repeat_password.data %}
+                value="{{ form.repeat_password.data }}"
+               {% endif %}
+               id="repeat_password"
+               name="repeat_password"
+               required
+        >
+        {{ error_display(form.repeat_password.errors) }}
+    </div>
+
+    <input class="btn btn-success" type="submit" value="Register">
+</form>
+{% endblock %}

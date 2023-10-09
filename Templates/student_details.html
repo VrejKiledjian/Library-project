@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="POST" action="/students/delete/{{ student.id }}">
+    <h3>Student details</h3>
+    <h4>Name: {{ student.full_name }}</h4>
+    <h4>Grade: {{ student.grade }}</h4>
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit" class="btn btn-danger">Delete</button>
+
+    </form>
+
+{% endblock %}

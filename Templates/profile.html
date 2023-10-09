@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% set page_title = "Profile" %}
+
+{% block content %}
+
+    <h2>Profile</h2>
+    <br/><br/>
+    <a href="{{ url_for('logout') }}"></a>
+        <button class="btn btn-outline-secondary btn-sm">Log Out</button>
+
+    <br/><br/>
+    <strong>Full Name: </strong>{{ current_user.full_name }}<br/>
+    <strong>Grade: </strong>{{ current_user.grade }}<br/>
+    <strong>Book Limit: </strong>{{ current_user.book_limit }}<br/>
+    <strong>Borrowed Books: </strong>{{ current_user.borrowed_book }}<br/>
+
+    <form method="POST" action="/return">
+    {% for borrowed_book in current_user.borrowed_books %}
+    <div class="book-item">
+                {% if borrowed_book %}
+        <label>
+            <input type="checkbox" name="book_copy_ids" value="{{ borrowed_book.book_copy.id }}">
+        </label>
+        {{ borrowed_book.book_copy.title }} by {{ borrowed_book.book_copy.author }}
+        {% endif %}
+    </div>
+    {% endfor %}
+    <button type="submit">Return Selected Books</button>
+</form>
+{% endblock %}

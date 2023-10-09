@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% from "macros.html" import error_display with context %}
+
+{% set page_title = "Login" %}
+
+{% block content %}
+<div class="container login-container">
+    <div class="row">
+        <div class="col-md-6 login-form-1">
+<h1>Login</h1>
+
+            <form method="POST" action="/login/admin">
+  <div class="d-grid gap-2 col-6 mx-auto">
+      <a href="login_admin.html"></a>
+        <button class="btn btn-primary" type="submit" name="action" value="admin">Admin</button>
+  </div>
+</form>
+            <form method="POST" action="/login/student">
+  <div class="d-grid gap-2 col-6 mx-auto">
+      <a href="login_student.html"></a>
+    <button class="btn btn-primary" type="submit" name="action" value="student">Student</button>
+  </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+{#            <div class="d-grid gap-2 col-6 mx-auto">#}
+{#  <button class="btn btn-primary" type="button">Admin</button>#}
+{#  <button class="btn btn-primary" type="button">Student</button>#}
+{#</div>#}
+{#<form method="POST">#}
+{#    {{ form.csrf_token }}#}
+{#    <div class="mb-3" style="width: 400px;" id="login-container">#}
+{#        <label for="full_name" class="form-label">Full_Name: </label>#}
+{#        <input type="text"#}
+{#               class="form-control"#}
+{#               {% if form.full_name.data %}#}
+{#                value="{{ form.full_name.data }}"#}
+{#               {% endif %}#}
+{#               id="full_name"#}
+{#               name="full_name"#}
+{#               required#}
+{#        >#}
+{#        {{ error_display(form.full_name.errors) }}#}
+{#    </div>#}
+{#    <div class="mb-3" style="width: 400px;">#}
+{#        <label for="password" class="form-label">Password: </label>#}
+{#        <input type="password"#}
+{#               class="form-control"#}
+{#               {% if form.password.data %}#}
+{#                value="{{ form.password.data }}"#}
+{#               {% endif %}#}
+{#               id="password"#}
+{#               name="password"#}
+{#               required#}
+{#        >#}
+{#        {{ error_display(form.password.errors) }}#}
+{#    </div>#}
+{#    <input class="btn btn-success" type="submit" value="Login">#}
+{#            </form>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+{#{% endblock %}#}

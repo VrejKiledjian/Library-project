@@ -1,0 +1,34 @@
+{%  extends "base.html" %}
+{% from "macros.html" import error_display with context %}
+
+
+{% block content %}
+
+<form method="POST" action="/books/delete/{{ book.id }}">
+    <h3>Book{{ book.title }}</h3>
+    <h4>Title: {{ book.title }}</h4>
+    <h4>Author: {{ book.author }}</h4>
+    <h4>Publish Year: {{ book.publish_year }}</h4>
+    <h4>ISBN: {{ book.ISBN }}</h4>
+
+    {% if current_user.roll == None %}
+    <a href="{{ url_for('borrow', book_id=book.id) }}" class="btn btn-outline-secondary btn-sm">Borrow</a>
+    <a href="{{ url_for('return_book') }}" class="btn btn-outline-secondary btn-sm">Return</a>
+    {% endif %}
+        <form method="POST" action="/return">
+{#    {% for borrowed_book in current_user.borrowed_books %}#}
+{#    <div class="book-item">#}
+{#        <label>#}
+{#            <input type="checkbox" name="book_copy_ids" value="{{ borrowed_book.book_copy.id }}">#}
+{#        </label>#}
+{#        {{ borrowed_book.book_copy.title }} by {{ borrowed_book.book_copy.author }}#}
+{#            <a href="/return/{{ borrowed_book.id}}">Return</a>#}
+{#    </div>#}
+{#    {% endfor %}#}
+{#    <button type="submit">Return Selected Books</button>#}
+{#    </form>#}
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+
+{% endblock %}

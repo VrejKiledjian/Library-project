@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% set page_title = "Admin Dashbored" %}
+
+{% block content %}
+
+    <h2>Admin dashbored</h2>
+    <br/><br/>
+    <a href="{{ url_for('logout') }}">Logout</a>
+
+    <br/><br/>
+    <strong>Full Name: </strong>{{ current_user.full_name_admin }}<br/>
+    <strong>Email: </strong>{{ current_user.email }}<br/>
+    <strong>Roll: </strong>{{ current_user.roll }}<br/>
+{% endblock %}

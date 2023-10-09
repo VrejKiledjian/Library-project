@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% from "macros.html" import error_display with context %}
+
+{% set page_title = "Login" %}
+
+{% block content %}
+
+<div class="container login-container">
+    <div class="row">
+        <div class="col-md-6 login-form-1">
+<h1>Login</h1>
+    </div>
+    <form method="POST">
+        {{ form.csrf_token }}
+        <div class="mb-3" style="width: 400px;" id="login-container">
+            <label for="full_name" class="form-label">Full_Name: </label>
+            <input type="text"
+                   class="form-control"
+                   {% if form.full_name.data %}
+                    value="{{ form.full_name.data }}"
+                   {% endif %}
+                   id="full_name"
+                   name="full_name"
+                   required
+            >
+            {{ error_display(form.full_name.errors) }}
+        </div>
+        <div class="mb-3" style="width: 400px;">
+            <label for="password" class="form-label">Password: </label>
+            <input type="password"
+                   class="form-control"
+                   {% if form.password.data %}
+                    value="{{ form.password.data }}"
+                   {% endif %}
+                   id="password"
+                   name="password"
+                   required
+            >
+            {{ error_display(form.password.errors) }}
+        </div>
+        <input class="btn btn-success" type="submit" value="Login">
+        </form>
+    </div>
+</div>
+{% endblock %}

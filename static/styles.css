@@ -1,0 +1,41 @@
+
+.hidden-text {
+    display: none;
+}
+
+/* Style the button */
+.toggle-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+/* When the button is clicked (focused), show the hidden content */
+.toggle-button:focus + .hidden-text {
+    display: block;
+}
+
+/*#hiddenText {*/
+/*    display: none;*/
+/*}*/
+
+/*#toggleLabel {*/
+/*    cursor: pointer;*/
+/*    padding: 10px 20px;*/
+/*    background-color: #007BFF;*/
+/*    color: white;*/
+/*    border: none;*/
+/*    border-radius: 4px;*/
+/*    margin-top: 10px;*/
+/*}*/
+
+/*#toggleLabel:hover {*/
+/*    background-color: #0056b3;*/
+/*}*/
+
+/*#toggleCheckbox:checked + #toggleLabel + #hiddenText {*/
+/*    display: block;*/
+/*}*/

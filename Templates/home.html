@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %} Home {% endblock %}
+
+
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center mt-2 mb-4">Library</h1>
+    <h2 class=" mt-4 mb-4">About Us</h2>
+    <div class="row">
+        <div class="col-md-6">
+    <p class="lead">
+        Welcome to Our Library, your digital gateway to a world of knowledge,adventure, and imagination.
+
+        Our mission is to provide a comprehensive and accessible collection of books
+        , articles, and resources to inspire and enrich the lives of our readers.Our purpose is clear:
+        to make the world's knowledge accessible to all,
+        fostering a global community of readers and thinkers.
+    </p>
+            </div>
+        <div class="d-none d-md-block col-6">
+        <img src="/static/nathan-aguirre-zVuDeGdjxgU-unsplash.jpg" style="height:320px; border-radius:4px"
+             alt="text">
+        </div>
+    </div>
+    <h2 class="text-center mt-4 mb-4">Our Vision</h2>
+    <p class="lead">
+        At this Library, we believe in the transformative power of literature and information.
+        Our vision is to create a vibrant online community where readers of all ages and backgrounds can explore, learn, and connect.
+        Whether you're a lifelong bookworm, a student seeking research materials, or someone looking for a new literary adventure,
+        our Library is here to serve as your trusted companion on your reading journey
+    </p>
+    <h6 class="mt-4 mb-4 lead">If you are interested log in and let's get started</h6>
+    <a href="{{ url_for('login') }}" class="btn btn-outline-secondary btn-sm"> Log In</a>
+
+
+
+    </div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{
+  "prerun": "# some code here",
+  "directory": "migrations",
+  "history": "migratehistory",
+  "models": [
+    "models.student.Student",
+    "models.book.Books",
+    "models.book.BooksCopy",
+    "models.admin.Admin",
+    "models.book.BorrowedBook"
+  ]
+}

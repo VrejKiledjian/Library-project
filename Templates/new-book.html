@@ -1,0 +1,90 @@
+
+
+{% extends "base.html" %}
+{% from "macros.html" import error_display with context %}
+
+{% set page_title = "Add Book" %}
+
+{% block content %}
+<h1>New Book</h1>
+<form method="POST" enctype="multipart/form-data">
+    {{ form.csrf_token }}
+    <div class="mb-3" style="width: 400px;">
+        <label for="title" class="form-label">Title</label>
+        <input type="text"
+               class="form-control"
+               {% if form.title.data %}
+                value="{{ form.title.data }}"
+               {% endif %}
+               id="title"
+               name="title"
+               placeholder="Title"
+               required
+        >
+        <div id="full-name-help" class="form-text">Official Book Name</div>
+        {{ error_display(form.title.errors) }}
+    </div>
+    <div class="mb-3" style="width: 400px;">
+        <label for="author" class="form-label">Author</label>
+        <input type="text"
+               class="form-control"
+               {% if form.author.data %}
+                value="{{ form.author.data }}"
+               {% endif %}
+               id="author"
+               name="author"
+               placeholder="Author"
+               required
+        >
+        {{ error_display(form.author.errors) }}
+    </div>
+    <div class="mb-3" style="width: 400px;">
+        <label for="publish_year" class="form-label">Publish Year</label>
+        <input type="number"
+               class="form-control"
+               {% if form.publish_year.data %}
+                value="{{ form.publish_year.data }}"
+               {% endif %}
+               id="publish_year"
+               name="publish_year"
+               placeholder="Publish Year"
+               required
+        >
+        {{ error_display(form.publish_year.errors) }}
+    </div>
+    <div class="mb-3" style="width: 400px;">
+        <label for="ISBN" class="form-label">ISBN</label>
+        <input type="number"
+               class="form-control"
+               {% if form.ISBN.data %}
+                value="{{ form.ISBN.data }}"
+               {% endif %}
+               id="ISBN"
+               name="ISBN"
+               placeholder="ISBN"
+               required
+        >
+        {{ error_display(form.ISBN.errors) }}
+    </div>
+    <div class="mb-3" style="width: 400px;">
+        <label for="summary" class="form-label">Summary</label>
+        <input type="text"
+               class="form-control"
+               {% if form.summary.data %}
+                value="{{ form.summary.data }}"
+               {% endif %}
+               id="summary"
+               name="summary"
+               placeholder="summary"
+               required
+        >
+        {{ error_display(form.summary.errors) }}
+    </div>
+        <div style="width: 500px;">
+          <label for="image_path" class="form-label">Photo: </label>
+          <input class="form-control form-control-lg" id="image_path" name="image_path" type="file">
+        </div>
+        <br>
+        <input class="btn btn-success" type="submit" value="Upload">
+    </form>
+{% endblock %}
